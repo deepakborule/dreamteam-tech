@@ -1,0 +1,37 @@
+<app-header></app-header>
+
+<br>
+<H4 class="text-center">Create Employee with Roles</H4>
+<div class="col-md-4 offset-md-3">
+<form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <div><label>Employee Name</label><input type="text" class="form-control" id="employeeName" [(ngModel)]="employee.employeeName" name="employeeName"></div>
+        <br>
+        <div>
+        <ng-multiselect-dropdown
+            name="roles"
+            [placeholder]="'Select Roles'"
+            [settings]="dropdownSettings"
+            [data]="roleDropdownList"
+            [(ngModel)]="selectedRoles"
+            (onSelect)="onItemSelect($event)"
+            (onSelectAll)="onSelectAll($event)"
+        >
+        </ng-multiselect-dropdown>
+        </div>
+        <br>
+        <div>
+            <select [(ngModel)]="selectedDepartment" (ngModelChange)="onDepartmentSelected($event)" class="form-control" name="department">
+                    <option class="dropdown-item" disabled selected value="undefined">Select Departments</option>
+                    <option *ngFor="let department of departments" value="{{department['id']}}">{{department['deptName']}}</option>
+                  </select>
+        </div>
+<br>
+    <div>
+        <button class="btn btn-success" type="submit">Submit</button>
+    </div>
+
+    </div>
+
+</form>
+</div>

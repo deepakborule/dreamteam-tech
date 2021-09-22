@@ -1,0 +1,23 @@
+<app-header></app-header>
+
+<br>
+<H4 class="text-center">Department wise Role Count</H4>
+<br>
+<div class="col-md-5 offset-md-4">
+
+<table class="table table-striped">
+    
+    <thead>
+        <tr>
+            <th>Department Name</th>
+            <th>Role Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let dept of departmentsRoleCount">
+            <td>{{dept.departmentName}}</td>
+            <td>{{dept.roleCount}}</td>
+        </tr>
+    </tbody>
+</table>
+</div>

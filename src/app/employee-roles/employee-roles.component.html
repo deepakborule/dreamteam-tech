@@ -1,0 +1,23 @@
+<app-header></app-header>
+
+<br>
+<H4 class="text-center">Employee & Their Roles</H4>
+<br>
+<div class="col-md-5 offset-md-4">
+
+<table class="table table-striped">
+    
+    <thead>
+        <tr>
+            <th>Employee Name</th>
+            <th>Roles</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let employee of employees">
+            <td>{{employee.employeeName}}</td>
+            <td><label *ngFor = "let role of employee.roles" >{{role.roleName}},&nbsp;</label></td>
+        </tr>
+    </tbody>
+</table>
+</div>

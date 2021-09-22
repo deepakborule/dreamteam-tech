@@ -1,0 +1,39 @@
+<app-header></app-header>
+
+<br>
+<H4 class="text-center">Employee List</H4>
+<br>
+<div class="col-md-4 offset-md-4">
+<div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <label for="ex1">Enter Department to Filter:</label>
+      </div>
+      <div class="col-sm">
+        <input type="text"  class="form-control" placeholder="Search By Department" [(ngModel)] ="filteredString" />
+      </div>
+     
+    </div>
+  </div>
+
+
+
+<table class="table table-striped">
+    
+    <thead>
+        <tr>
+            <th>Employee Name</th>
+            <th>Depatment</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+       
+          <tr *ngFor = "let employee of employees|filter:filteredString">
+            <td>{{employee.employeeName}}</td>
+            <td>{{employee.department.deptName}}</td>
+            <td><button (click)="updateEmployee(employee.id)" class="btn btn-info"> Update</button></td>
+        </tr>
+    </tbody>
+</table>
+</div>
